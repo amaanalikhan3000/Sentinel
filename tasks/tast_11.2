@@ -1,0 +1,46 @@
+# Step 11.3 — Connect the Five Existing SentinelAI Investigation Tools
+
+The Java ADK Gemini agent from Step 11.2 is already created under agent/ and is isolated from the existing Spring Boot backend.
+
+Now connect the five existing SentinelAI investigation tools to the Java ADK agent.
+
+Existing tools:
+1. getServiceHealth()
+2. getPaymentMetrics(startTime, endTime)
+3. getKafkaConsumerLag(consumerGroup, topic)
+4. getRecentErrors(service, timeWindow)
+5. getDependencyHealth()
+
+Requirements:
+- First inspect the existing Spring Boot backend and locate the already implemented tool interfaces/endpoints/classes.
+- Do not redesign or replace the existing tools.
+- Do not change the existing backend architecture.
+- Keep all five tools read-only.
+- The agent must receive real responses from the existing backend, not hard-coded/mock investigation data.
+- Use the appropriate Java ADK Function Tool mechanism supported by the currently installed google-adk version.
+- Keep the agent isolated under agent/.
+- Use the existing backend APIs/contracts where applicable.
+- Do not add unnecessary dependencies or frameworks.
+- Do not add Gemini instructions yet.
+- Do not implement the complete investigation flow yet.
+- Do not implement RCA generation yet.
+- Do not store investigation results yet.
+- Do not expose GOOGLE_API_KEY.
+- Do not modify unrelated backend functionality.
+
+Acceptance criteria:
+- All five tools are exposed to the ADK agent.
+- Each tool can obtain real data from the existing backend.
+- Tool failures are surfaced rather than fabricated.
+- Existing Spring Boot functionality continues to work.
+- Maven build succeeds.
+
+After implementation report:
+1. Files changed.
+2. How each of the five tools is connected.
+3. Backend endpoint/class used by each tool.
+4. Dependencies added, if any.
+5. Build/test result.
+6. Any blocker or API limitation.
+
+Stop after the five tools are connected successfully.
